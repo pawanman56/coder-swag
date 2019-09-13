@@ -4,7 +4,7 @@ import pawan.example.coderswag.Model.Category
 import pawan.example.coderswag.Model.Product
 
 object DataService {
-    val categoreis = listOf(
+    val categories = listOf(
         Category("SHIRTS", "shirtimage"),
         Category("HOODIES", "hoodieimage"),
         Category("HATS", "hatimage"),
