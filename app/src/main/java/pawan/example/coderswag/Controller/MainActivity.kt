@@ -2,10 +2,8 @@ package pawan.example.coderswag.Controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import pawan.example.coderswag.Adapters.CategoryAdapter
-import pawan.example.coderswag.Model.Category
 import pawan.example.coderswag.R
 import pawan.example.coderswag.Services.DataService
 
