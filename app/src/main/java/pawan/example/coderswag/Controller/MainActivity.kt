@@ -2,20 +2,25 @@ package pawan.example.coderswag.Controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import pawan.example.coderswag.Adapters.CategoryAdapter
+import pawan.example.coderswag.Adapters.CategoryRecycleAdapter
 import pawan.example.coderswag.R
 import pawan.example.coderswag.Services.DataService
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var adapter : CategoryAdapter
+    lateinit var adapter : CategoryRecycleAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = CategoryAdapter(this, DataService.categories)
+        adapter = CategoryRecycleAdapter(this, DataService.categories)
         categoryListView.adapter = adapter
+
+        val layoutManager = LinearLayoutManager(this)
+        categoryListView.layoutManager = layoutManager
+        categoryListView.setHasFixedSize(true)
     }
 }
