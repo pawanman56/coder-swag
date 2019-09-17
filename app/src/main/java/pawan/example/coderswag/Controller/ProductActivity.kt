@@ -1,5 +1,6 @@
 package pawan.example.coderswag.Controller
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import pawan.example.coderswag.Adapters.ProductAdapter
 import pawan.example.coderswag.R
 import pawan.example.coderswag.Services.DataService
 import pawan.example.coderswag.Utilities.EXTRA_CATEGORY
+import pawan.example.coderswag.Utilities.EXTRA_PRODUCT
 
 class ProductActivity : AppCompatActivity() {
     lateinit var adapter : ProductAdapter
@@ -18,7 +20,11 @@ class ProductActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product)
 
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
-        adapter = ProductAdapter(this, DataService.getProducts(categoryType))
+        adapter = ProductAdapter(this, DataService.getProducts(categoryType)) { product ->
+            val productDetailIntent = Intent(this, ProductDetailActivity::class.java)
+            productDetailIntent.putExtra(EXTRA_PRODUCT, product)
+            startActivity(productDetailIntent)
+        }
         productListView.adapter = adapter
 
         var spanCount = 2
