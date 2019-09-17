@@ -1,5 +1,6 @@
 package pawan.example.coderswag.Services
 
+import android.os.Parcelable
 import pawan.example.coderswag.Model.Category
 import pawan.example.coderswag.Model.Product
 
